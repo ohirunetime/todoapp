@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.example.todoapp.model.Counter;
 import com.example.todoapp.model.Todo;
 import com.example.todoapp.model.User;
 
@@ -27,6 +28,13 @@ public interface ApiInterface {
     @GET("user_todo/{uuid}")
     Call<List<Todo>> getUserTodo(@Path("uuid") String uuid);
 
+
+    @GET("counter")
+    Call<Counter> getCounter();
+
+
+    @POST("counter")
+    Call<Counter> counter();
 
 
     @FormUrlEncoded

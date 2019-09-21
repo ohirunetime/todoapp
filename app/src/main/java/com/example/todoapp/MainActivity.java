@@ -23,6 +23,7 @@ import com.example.todoapp.api.ApiClient;
 import com.example.todoapp.api.ApiInterface;
 import com.example.todoapp.model.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.UUID;
 
@@ -52,10 +53,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         button3=findViewById(R.id.button3);
         button3.setOnClickListener(this);
-
-
-
-
 
 
         SharedPreferences UuidStore = getSharedPreferences("UuidStore",MODE_PRIVATE);
@@ -100,6 +97,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container,fragment);
         transaction.commit();
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,Form.class);
+                startActivity(intent);
+            }
+        });
 
 
 

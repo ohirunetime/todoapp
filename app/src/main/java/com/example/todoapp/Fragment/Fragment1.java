@@ -34,6 +34,7 @@ public class Fragment1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater , ViewGroup container,
                              Bundle savedInstanceState) {
+
         final View view = inflater.inflate(R.layout.fragment1,container,false);
         progressDialog=new ProgressDialog(getActivity());
 
@@ -65,7 +66,6 @@ public class Fragment1 extends Fragment {
             public void onFailure(Call<List<Todo>> call, Throwable t) {
                 progressDialog.dismiss();
                 Toast.makeText(getActivity(), "通信エラー", Toast.LENGTH_LONG).show();
-                System.out.println("error="+t);
 
             }
         });

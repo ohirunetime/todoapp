@@ -17,20 +17,20 @@
             android:layout_width="1dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="狼煙"/>
+            android:text="sky"/>
 
         <Button
             android:id="@+id/button2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="MY "/>
+            android:text="folum "/>
         <Button
             android:id="@+id/button3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="投稿"/>
+            android:text="my"/>
 
 
 
@@ -44,8 +44,21 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/ic_add" />
+
 
     </RelativeLayout>
+
+
 
 
 </LinearLayout>
