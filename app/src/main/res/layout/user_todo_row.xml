@@ -16,6 +16,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/RelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
@@ -58,6 +59,18 @@
             android:text="created_at" />
 
         <TextView
+            android:id="@+id/txt_update_at"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_created_at"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:gravity="end"
+            android:text="update_at"
+            android:textSize="12sp" />
+
+        <TextView
             android:id="@+id/textViewOptions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,6 +81,10 @@
             android:text="&#8942;"
             android:textAppearance="?android:textAppearanceLarge"
             android:textSize="25dp" />
+
+
+
+
 
     </RelativeLayout>
 

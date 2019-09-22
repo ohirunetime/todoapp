@@ -58,6 +58,14 @@ public interface ApiInterface {
             @Field("uuid") String uuid
     );
 
+    @FormUrlEncoded
+    @POST("update")
+    Call<Todo> updateTodo(
+            @Field("id") int id,
+            @Field("color") String color
+
+    );
+
 
 
 

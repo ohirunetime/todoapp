@@ -15,6 +15,48 @@ public class Todo {
     @SerializedName("uuid")
     private String uuid;
 
+
+    @Expose
+    @SerializedName("color")
+    private String color;
+
+    @Expose
+    @SerializedName("name")
+    private String name;
+
+    @Expose
+    @SerializedName("created_at")
+    private String created_at;
+
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getUpdate_at() {
+        return update_at;
+    }
+
+    public void setUpdate_at(String update_at) {
+        this.update_at = update_at;
+    }
+
+    @Expose
+    @SerializedName("update_at")
+    private String update_at;
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     public String getName() {
         return name;
     }
@@ -23,28 +65,13 @@ public class Todo {
         this.name = name;
     }
 
-    @Expose
-    @SerializedName("name")
-    private String name;
 
 
-    public String getTo_char() {
-        return to_char;
-    }
 
-    public void setTo_char(String to_char) {
-        this.to_char = to_char;
-    }
 
-    @SerializedName("to_char")
-    private String to_char;
 
-    public Todo(int id, String description, String uuid, String to_char) {
-        this.id = id;
-        this.description = description;
-        this.uuid = uuid;
-        this.to_char = to_char;
-    }
+
+
 
     public int getId() {
         return id;

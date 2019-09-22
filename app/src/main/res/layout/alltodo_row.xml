@@ -14,8 +14,8 @@
         android:orientation="vertical"
         android:background="#49000000"></LinearLayout>
 
-
     <RelativeLayout
+        android:id="@+id/RelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
@@ -56,6 +56,18 @@
             android:gravity="end"
             android:textSize="12sp"
             android:text="created_at" />
+
+        <TextView
+            android:id="@+id/txt_update_at"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_created_at"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:gravity="end"
+            android:text="update_at"
+            android:textSize="12sp" />
 
     </RelativeLayout>
 
