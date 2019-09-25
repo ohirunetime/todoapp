@@ -1,9 +1,15 @@
-package com.example.todoapp;
+package com.ohirunetime.todoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.AppLaunchChecker;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import com.ohirunetime.todoapp.Fragment.Fragment1;
+import com.ohirunetime.todoapp.Fragment.Fragment2;
+import com.ohirunetime.todoapp.Fragment.Fragment3;
+import com.ohirunetime.todoapp.api.ApiClient;
+import com.ohirunetime.todoapp.api.ApiInterface;
+import com.ohirunetime.todoapp.model.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -16,14 +22,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.todoapp.Fragment.Fragment1;
-import com.example.todoapp.Fragment.Fragment2;
-import com.example.todoapp.Fragment.Fragment3;
-import com.example.todoapp.api.ApiClient;
-import com.example.todoapp.api.ApiInterface;
-import com.example.todoapp.model.User;
+import com.ohirunetime.todoapp.R;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.UUID;
 
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void onResponse(Call<User> call, Response<User> response) {
                     Intent intent = new Intent(MainActivity.this,Profile.class);
                     startActivity(intent);
-                    Toast.makeText(MainActivity.this, "welcome!!！", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "welcome!!", Toast.LENGTH_LONG).show();
 
                 }
 
@@ -97,18 +98,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container,fragment);
         transaction.commit();
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Form.class);
-                startActivity(intent);
-            }
-        });
-
-
-
     }
 
     private void displayFragment(int fragmentNumber) {

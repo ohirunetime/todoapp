@@ -1,21 +1,19 @@
-package com.example.todoapp.Fragment;
+package com.ohirunetime.todoapp.Fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.todoapp.R;
-import com.example.todoapp.adapter.AllTodoAdapter;
-import com.example.todoapp.adapter.UserTodoAdapter;
-import com.example.todoapp.api.ApiClient;
-import com.example.todoapp.api.ApiInterface;
-import com.example.todoapp.model.Todo;
+import com.ohirunetime.todoapp.R;
+import com.ohirunetime.todoapp.adapter.UserTodoAdapter;
+import com.ohirunetime.todoapp.api.ApiClient;
+import com.ohirunetime.todoapp.api.ApiInterface;
+import com.ohirunetime.todoapp.model.Todo;
 
 import java.util.List;
 
@@ -28,10 +26,11 @@ import retrofit2.Response;
 
 public class Fragment3 extends Fragment {
 
-    Button sendButton;
-    EditText et_description;
+
     RecyclerView recyclerView;
     UserTodoAdapter userTodoAdapter;
+    ProgressDialog progressDialog;
+
 
 
 
@@ -42,6 +41,11 @@ public class Fragment3 extends Fragment {
     public View onCreateView(LayoutInflater inflater , ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment3,container,false);
+        progressDialog=new ProgressDialog(getActivity());
+
+
+        progressDialog.setMessage("Loading ...");
+        progressDialog.show();
 
         getTodo(view);
 
@@ -59,6 +63,8 @@ public class Fragment3 extends Fragment {
         call.enqueue(new Callback<List<Todo>>() {
             @Override
             public void onResponse(Call<List<Todo>> call, Response<List<Todo>> response) {
+                progressDialog.dismiss();
+
 
                 List<Todo> todouserList = response.body();
 
@@ -72,6 +78,7 @@ public class Fragment3 extends Fragment {
 
             @Override
             public void onFailure(Call<List<Todo>> call, Throwable t) {
+                progressDialog.dismiss();
                 Toast.makeText(getActivity(),"通信エラー",Toast.LENGTH_LONG).show();
 
 

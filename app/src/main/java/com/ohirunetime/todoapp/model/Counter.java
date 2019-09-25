@@ -1,4 +1,4 @@
-package com.example.todoapp.model;
+package com.ohirunetime.todoapp.model;
 
 import com.google.gson.annotations.SerializedName;
 

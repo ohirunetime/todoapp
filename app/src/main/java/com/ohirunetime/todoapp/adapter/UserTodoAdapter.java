@@ -1,20 +1,18 @@
-package com.example.todoapp.adapter;
+package com.ohirunetime.todoapp.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.todoapp.R;
-import com.example.todoapp.api.ApiClient;
-import com.example.todoapp.api.ApiInterface;
-import com.example.todoapp.model.Todo;
+import com.ohirunetime.todoapp.R;
+import com.ohirunetime.todoapp.api.ApiClient;
+import com.ohirunetime.todoapp.api.ApiInterface;
+import com.ohirunetime.todoapp.model.Todo;
 
 import java.util.List;
 
@@ -35,7 +33,6 @@ public class UserTodoAdapter extends RecyclerView.Adapter<UserTodoAdapter.UserTo
 
     class UserTodoViewHolder extends RecyclerView.ViewHolder {
 
-        RelativeLayout relativeLayout;
 
         public final View mView;
         TextView txtdescription , txtcreated_at , txtupdate_at, txtname , buttonViewOption;
@@ -50,7 +47,6 @@ public class UserTodoAdapter extends RecyclerView.Adapter<UserTodoAdapter.UserTo
 
             txtname=mView.findViewById(R.id.txt_name);
 
-            relativeLayout=mView.findViewById(R.id.RelativeLayout);
 
 
 
@@ -71,18 +67,19 @@ public class UserTodoAdapter extends RecyclerView.Adapter<UserTodoAdapter.UserTo
 
     }
     @Override
-    public void onBindViewHolder(final UserTodoViewHolder holder , int position ) {
+    public void onBindViewHolder(final UserTodoViewHolder holder , final int position ) {
         holder.txtdescription.setText(todouserList.get(position).getDescription());
         holder.txtcreated_at.setText(todouserList.get(position).getCreated_at());
         holder.txtname.setText(todouserList.get(position).getName());
         holder.txtupdate_at.setText(todouserList.get(position).getUpdate_at());
 
-        holder.relativeLayout.setBackgroundColor(Color.parseColor(todouserList.get(position).getColor()));
 
 
 
 
         final int todoid = todouserList.get(position).getId();
+
+
         holder.buttonViewOption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,15 +91,30 @@ public class UserTodoAdapter extends RecyclerView.Adapter<UserTodoAdapter.UserTo
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.menu1:
-                                String color = "#FF9DAE";
-                                update(todoid,color);
+                                update(todoid);
+
+                                todouserList.remove(position);
+                                notifyItemRemoved(position);
                                 break;
-                            case R.id.menu2:
-                                String color1 = "#FF00E5FF";
-                                update(todoid,color1);
-                                break;
-                            case R.id.menu3:
-                                Toast.makeText(context,"item3",Toast.LENGTH_SHORT).show();
+
+
+                            case R.id.menu4:
+                                ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+                                Call<Todo> call = apiInterface.delete(todoid);
+                                call.enqueue(new Callback<Todo>() {
+                                    @Override
+                                    public void onResponse(Call<Todo> call, Response<Todo> response) {
+                                        todouserList.remove(position);
+                                        notifyItemRemoved(position);
+                                        Toast.makeText(context,"削除しました",Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Todo> call, Throwable t) {
+                                        Toast.makeText(context,"通信エラーが発生しております",Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
                                 break;
                         }
                         return false;
@@ -116,19 +128,19 @@ public class UserTodoAdapter extends RecyclerView.Adapter<UserTodoAdapter.UserTo
 
     }
 
-    public void update(final int todoid, final String color ){
+    public void update(final int todoid){
 
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<Todo> call = apiInterface.updateTodo(todoid,color);
+        Call<Todo> call = apiInterface.updateTodo(todoid);
         call.enqueue(new Callback<Todo>() {
             @Override
             public void onResponse(Call<Todo> call, Response<Todo> response) {
-                Toast.makeText(context,"紅蓮な狼煙があがりました",Toast.LENGTH_SHORT).show();
-                System.out.println("todoid"+todoid+"color="+color);
+                Toast.makeText(context,"お疲れ様です!!",Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<Todo> call, Throwable t) {
+                Toast.makeText(context,"通信エラーが発生しております",Toast.LENGTH_LONG).show();
 
             }
         });
@@ -140,6 +152,7 @@ public class UserTodoAdapter extends RecyclerView.Adapter<UserTodoAdapter.UserTo
     public int getItemCount() {
         return todouserList.size();
     }
+
 
 
 

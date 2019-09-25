@@ -1,4 +1,4 @@
-package com.example.todoapp.model;
+package com.ohirunetime.todoapp.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -16,9 +16,7 @@ public class Todo {
     private String uuid;
 
 
-    @Expose
-    @SerializedName("color")
-    private String color;
+
 
     @Expose
     @SerializedName("name")
@@ -49,13 +47,7 @@ public class Todo {
     @SerializedName("update_at")
     private String update_at;
 
-    public String getColor() {
-        return color;
-    }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
 
     public String getName() {
         return name;

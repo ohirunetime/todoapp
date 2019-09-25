@@ -1,19 +1,17 @@
-package com.example.todoapp.Fragment;
+package com.ohirunetime.todoapp.Fragment;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.todoapp.MainActivity;
-import com.example.todoapp.R;
-import com.example.todoapp.adapter.AllTodoAdapter;
-import com.example.todoapp.api.ApiClient;
-import com.example.todoapp.api.ApiInterface;
-import com.example.todoapp.model.Todo;
+import com.ohirunetime.todoapp.R;
+import com.ohirunetime.todoapp.adapter.AllTodoAdapter;
+import com.ohirunetime.todoapp.api.ApiClient;
+import com.ohirunetime.todoapp.api.ApiInterface;
+import com.ohirunetime.todoapp.model.Todo;
 
 import java.util.List;
 
@@ -39,7 +37,7 @@ public class Fragment1 extends Fragment {
         progressDialog=new ProgressDialog(getActivity());
 
 
-        progressDialog.setMessage("更新中...");
+        progressDialog.setMessage("Loading ...");
         progressDialog.show();
 
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);

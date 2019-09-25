@@ -1,15 +1,13 @@
-package com.example.todoapp.adapter;
+package com.ohirunetime.todoapp.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.todoapp.R;
-import com.example.todoapp.model.Todo;
+import com.ohirunetime.todoapp.R;
+import com.ohirunetime.todoapp.model.Todo;
 
 import java.util.List;
 
@@ -30,7 +28,6 @@ public class AllTodoAdapter extends RecyclerView.Adapter<AllTodoAdapter.AllTodoV
     class AllTodoViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
 
-        RelativeLayout relativeLayout;
 
         TextView txtdescription , txtcreated_at , txtname , txt_update_at;
 
@@ -42,8 +39,6 @@ public class AllTodoAdapter extends RecyclerView.Adapter<AllTodoAdapter.AllTodoV
             txtcreated_at=mView.findViewById(R.id.txt_created_at);
             txtname=mView.findViewById(R.id.txt_name);
             txt_update_at=mView.findViewById(R.id.txt_update_at);
-
-            relativeLayout=mView.findViewById(R.id.RelativeLayout);
 
         }
     }
@@ -63,7 +58,6 @@ public class AllTodoAdapter extends RecyclerView.Adapter<AllTodoAdapter.AllTodoV
         holder.txt_update_at.setText(todoList.get(position).getUpdate_at());
 
 
-        holder.relativeLayout.setBackgroundColor(Color.parseColor(todoList.get(position).getColor()));
 
 
 

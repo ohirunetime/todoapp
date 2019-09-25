@@ -12,7 +12,7 @@
         android:layout_width="10dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#49000000"></LinearLayout>
+        android:background="#FF00E5FF"></LinearLayout>
 
 
     <RelativeLayout
@@ -32,7 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
-            android:lines="2"
+            android:lines="1"
+            android:textSize="15sp"
             android:text="name" />
 
         <TextView
@@ -43,7 +44,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:layout_below="@+id/txt_name"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:text="description" />
 
         <TextView

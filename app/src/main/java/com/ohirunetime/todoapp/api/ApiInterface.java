@@ -1,12 +1,8 @@
-package com.example.todoapp.api;
+package com.ohirunetime.todoapp.api;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
-import com.example.todoapp.model.Counter;
-import com.example.todoapp.model.Todo;
-import com.example.todoapp.model.User;
+import com.ohirunetime.todoapp.model.Counter;
+import com.ohirunetime.todoapp.model.Todo;
+import com.ohirunetime.todoapp.model.User;
 
 import java.util.List;
 
@@ -16,7 +12,6 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface ApiInterface {
 
@@ -61,9 +56,14 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("update")
     Call<Todo> updateTodo(
-            @Field("id") int id,
-            @Field("color") String color
+            @Field("id") int id
 
+    );
+
+    @FormUrlEncoded
+    @POST("delete")
+    Call<Todo> delete(
+            @Field("id") int id
     );
 
 

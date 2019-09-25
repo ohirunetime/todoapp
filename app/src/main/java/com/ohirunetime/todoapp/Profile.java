@@ -1,6 +1,9 @@
-package com.example.todoapp;
+package com.ohirunetime.todoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import com.ohirunetime.todoapp.api.ApiClient;
+import com.ohirunetime.todoapp.api.ApiInterface;
+import com.ohirunetime.todoapp.model.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -12,9 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.todoapp.api.ApiClient;
-import com.example.todoapp.api.ApiInterface;
-import com.example.todoapp.model.User;
+import com.ohirunetime.todoapp.R;
 
 public class Profile extends AppCompatActivity {
 

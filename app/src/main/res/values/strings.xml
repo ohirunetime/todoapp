@@ -1,4 +1,6 @@
 <resources>
-    <string name="app_name">todoapp</string>
-    <string name="otsukare">お疲れカウンター</string>
+    <string name="nav1">lobby</string>
+    <string name="nav2">form</string>
+    <string name="nav3">ToDo</string>
+    <string name="app_name">ToDoShare</string>
 </resources>
